@@ -1,0 +1,20 @@
+{
+  "name": "settle-all-promises",
+  "version": "1.0.0",
+  "description": "Utility to run multiple promises & deliver execution results of all Promises at a time.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx jest"
+  },
+  "author": "pcj",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^25.2.1",
+    "@typescript-eslint/eslint-plugin": "^2.31.0",
+    "@typescript-eslint/parser": "^2.31.0",
+    "eslint": "^7.0.0",
+    "jest": "^26.0.1",
+    "ts-jest": "^25.5.1",
+    "typescript": "^3.8.3"
+  }
+}
