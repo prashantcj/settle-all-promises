@@ -66,7 +66,7 @@ test('settle() test', async (done) => {
 test('stat() test ', async (done) => {
   const results: PromiseResult[] = await settle(promises);
   const statistic = stat(results);
-  expect(statistic.suceededCount).toEqual(4);
-  expect(statistic.failedCount).toEqual(2);
+  expect(statistic.resolvedCount).toEqual(4);
+  expect(statistic.rejectedCount).toEqual(2);
   done();
 });

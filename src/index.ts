@@ -1,6 +1,10 @@
 import { PromiseResult } from "./model/PromiseResult";
 
 
+/**
+ * @param promises Array of promises to be resolved
+ * @returns {@link PromiseResult[]} array with results of all promises executions
+ */
 export async function settle(promises: Promise<any>[]) {
     return new Promise<any>((resolve, reject) => {
         try {
@@ -25,19 +29,23 @@ export async function settle(promises: Promise<any>[]) {
     })
 }
 
+/**
+ * @param results  {@link PromiseResult[]} array returned by {@link settle(promises: Promise<any>[])} method
+ * @returns {@link PromiseResult[]} array with results of all promises executions
+ */
 export function stat(results: PromiseResult[]): {
-    suceededCount: number
-    failedCount: number
+    resolvedCount: number
+    rejectedCount: number
 } {
     let stat = {
-        suceededCount: 0,
-        failedCount: 0
+        resolvedCount: 0,
+        rejectedCount: 0
     }
     for (let i = 0; i < results.length; i++) {
         if (results[i].errorData) {
-            stat.failedCount += 1;
+            stat.rejectedCount += 1;
         } else {
-            stat.suceededCount += 1;
+            stat.resolvedCount += 1;
         }
     }
     return stat;
