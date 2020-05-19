@@ -1,6 +1,6 @@
 {
   "name": "settle-all-promises",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Utility to run multiple promises & deliver execution results of all Promises at a time.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -18,5 +18,9 @@
     "ts-jest": "^25.5.1",
     "typescript": "^3.8.3"
   },
-  "prepublish": "tsc"
+  "prepublish": "tsc",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prashantcj/settle-all-promises.git"
+  }
 }
