@@ -1,8 +1,9 @@
 {
   "name": "settle-all-promises",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Utility to run multiple promises & deliver execution results of all Promises at a time.",
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "test": "npx jest"
   },
