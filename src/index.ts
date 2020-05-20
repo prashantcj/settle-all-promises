@@ -6,17 +6,17 @@ import { PromiseResult } from "./model/PromiseResult";
  * @returns {@link PromiseResult[]} array with results of all promises executions
  */
 export async function settle(promises: Promise<any>[]) {
-    return new Promise<any>((resolve, reject) => {
+    return new Promise<any>(function (resolve, reject) {
         try {
             const results: PromiseResult[] = new Array(promises.length);
             for (let i = 0; i < promises.length; i++) {
                 const promise = promises[i];
-                promise.then(data => {
+                promise.then(function(data) {
                     results[i] = new PromiseResult(promise, data, null);
                     if(promises.length === results.length) {
                         resolve(results);
                     }
-                }).catch(err => {
+                }).catch(function(err) {
                     results[i] = new PromiseResult(promise, null, err);
                     if(promises.length === results.length) {
                         resolve(results);
