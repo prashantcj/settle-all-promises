@@ -1,28 +1,28 @@
 import { settle, stat } from './../src/index';
 import { PromiseResult } from '../src/model/PromiseResult';
 
-const p1 = new Promise<any>(function (resolve, reject) {
+const p1 = new Promise<any>((resolve, reject) => {
     resolve('p1')
 });
 
-const p2 = new Promise<any>(function (resolve, reject) {
+const p2 = new Promise<any>((resolve, reject) => {
   resolve('p2')
 });
 
-const p3 = new Promise<any>(function (resolve, reject) {
+const p3 = new Promise<any>((resolve, reject) => {
   resolve('p3')
 });
 
-const p4 = new Promise<any>(function (resolve, reject) {
+const p4 = new Promise<any>((resolve, reject) => {
   resolve('p4')
 });
 
-const p5 = new Promise<any>(function (resolve, reject) {
+const p5 = new Promise<any>((resolve, reject) => {
   reject('p5')
 });
 
 
-const p6 = new Promise<any>(function (resolve, reject) {
+const p6 = new Promise<any>((resolve, reject) => {
   reject(new Error('Test Error'))
 });
 
@@ -34,7 +34,7 @@ promises[3] = p4;
 promises[4] = p5;
 promises[5] = p6;
 
-test('settle() test', async function (done) {
+test('settle() test', async (done) => {
   const results: PromiseResult[] = await settle(promises);
   expect(results[0].original).toEqual(p1);
   expect(results[0].resultData).toEqual('p1');
@@ -63,7 +63,7 @@ test('settle() test', async function (done) {
   done();
 });
 
-test('stat() test ', async function (done) {
+test('stat() test ', async (done) => {
   const results: PromiseResult[] = await settle(promises);
   const statistic = stat(results);
   expect(statistic.resolvedCount).toEqual(4);
