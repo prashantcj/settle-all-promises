@@ -62,3 +62,7 @@ PromiseResult {
 }
 {"resolvedCount":2,"rejectedCount":1}
 ```
+
+# Compatibility
+Min node version tested against -> `v0.12.0`
+Max node version tested against -> `v14.3.0` 
