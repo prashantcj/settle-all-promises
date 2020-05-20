@@ -62,6 +62,21 @@ PromiseResult {
 }
 {"resolvedCount":2,"rejectedCount":1}
 ```
+### Note
+
+Use of arrow OR Lambda function syntax may not be allowed in older node versions prior to `4.2.4` use normal function callbacks syntax instead. Take look at example below,
+
+```javascript
+// Using arrow function AKA Lambda function
+settle([p0, p1, p2]).then(results => {
+   // Process results here
+});
+
+// Using normal function callback
+settle([p0, p1, p2]).then(function(results) {
+   // Process results here
+});
+```
 
 # Compatibility
 Min node version tested against -> `v0.12.0`
