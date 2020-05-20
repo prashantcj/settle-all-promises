@@ -3,6 +3,12 @@ Utility to run multiple promises &amp; deliver execution results of all Promises
 
 An alternative to `Promise.allSettled()` method for versions of node prior to `12.9.0`
 
+# Installation
+
+```sh
+npm i settle-all-promises --save
+```
+
 # Use
 
 ```javascript
