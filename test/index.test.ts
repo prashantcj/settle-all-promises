@@ -34,20 +34,20 @@ promises[3] = p4;
 promises[4] = p5;
 promises[5] = p6;
 
-test('Calling using settle() async-await', async (done) => {
+test('Calling settle() using async-await', async (done) => {
   const results: PromiseResult[] = await settle(promises);
   verifyResult(results);
   done();
 });
 
-test('Calling using settle() using arrow function or lambda function', (done) => {
+test('Calling settle() using arrow function or lambda function', (done) => {
   settle(promises).then((results: PromiseResult[]) => {
     verifyResult(results);
     done();
   });
 });
 
-test('Calling using settle() using callback function', (done) => {
+test('Calling settle() using callback function', (done) => {
   const verifyResultsCallback = function (results: PromiseResult[]) {
     verifyResult(results);
     done();
