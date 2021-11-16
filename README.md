@@ -64,20 +64,23 @@ PromiseResult {
 ```
 ### Note
 
-Use of arrow OR Lambda function syntax may not be allowed in older node versions prior to `4.2.4` use normal function callbacks syntax instead. Take look at example below,
+Use of arrow OR Lambda function syntax may not be allowed in older node versions prior to `4.2.4` use normal function callbacks syntax instead. Take look at examples below,
 
 ```javascript
-// Using arrow function AKA Lambda function
+// 1. Using arrow function AKA Lambda function, for node versions
+// after or equal to 4.0.0
 settle([p0, p1, p2]).then(results => {
    // Process results here
 });
 
-// Using normal function callback
+// 2. Using normal function callback, for node versions
+// before 4.0.0
 settle([p0, p1, p2]).then(function(results) {
    // Process results here
 });
 
-// Using async-await
+// 3. Using async-await, for node versions
+// after or equal to 7.6.0
 async function callSettle() {
   const results = await settle([p0, p1, p2]);
   // Process results here
