@@ -84,7 +84,7 @@ async function callSettle() {
 }
 ```
 
-For additional examples checkout the [test\index.test.ts](settle-all-promises/test/index.test.ts) file.
+For additional examples checkout the [test/index.test.ts](test/index.test.ts) file.
 # Compatibility
 Min node version tested against -> `v0.12.0`
 Max node version tested against -> `v14.3.0` 
