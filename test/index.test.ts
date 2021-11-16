@@ -34,8 +34,45 @@ promises[3] = p4;
 promises[4] = p5;
 promises[5] = p6;
 
-test('settle() test', async (done) => {
+test('Calling settle() using async-await', async (done) => {
   const results: PromiseResult[] = await settle(promises);
+  verifyResult(results);
+  done();
+});
+
+test('Calling settle() using arrow function or lambda function', (done) => {
+  settle(promises).then((results: PromiseResult[]) => {
+    verifyResult(results);
+    done();
+  });
+});
+
+test('Calling settle() using callback function', (done) => {
+  const verifyResultsCallback = function (results: PromiseResult[]) {
+    verifyResult(results);
+    done();
+  };
+  settle(promises).then(verifyResultsCallback);
+});
+
+test('stat() test ', async (done) => {
+  const results: PromiseResult[] = await settle(promises);
+  const statistic = stat(results);
+  expect(statistic.resolvedCount).toEqual(4);
+  expect(statistic.rejectedCount).toEqual(2);
+  done();
+});
+
+
+test('Call using async await ', async (done) => {
+  const results: PromiseResult[] = await settle(promises);
+  const statistic = stat(results);
+  expect(statistic.resolvedCount).toEqual(4);
+  expect(statistic.rejectedCount).toEqual(2);
+  done();
+});
+
+function verifyResult(results: PromiseResult[]) {
   expect(results[0].original).toEqual(p1);
   expect(results[0].resultData).toEqual('p1');
   expect(results[0].errorData).toBeNull();
@@ -60,13 +97,4 @@ test('settle() test', async (done) => {
   expect(results[5].resultData).toBeNull();
   expect(results[5].errorData instanceof Error).toBeTruthy();
   expect(results[5].errorData.message).toEqual('Test Error');
-  done();
-});
-
-test('stat() test ', async (done) => {
-  const results: PromiseResult[] = await settle(promises);
-  const statistic = stat(results);
-  expect(statistic.resolvedCount).toEqual(4);
-  expect(statistic.rejectedCount).toEqual(2);
-  done();
-});
+}
