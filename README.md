@@ -76,6 +76,12 @@ settle([p0, p1, p2]).then(results => {
 settle([p0, p1, p2]).then(function(results) {
    // Process results here
 });
+
+// Using async-await
+async function callSettle() {
+  const results = await settle([p0, p1, p2]);
+  // Process results here
+}
 ```
 
 # Compatibility
